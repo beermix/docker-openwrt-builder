@@ -4,10 +4,11 @@ ADD yum.repos.d /etc/yum.repos.d/
 
 RUN dnf upgrade -y && dnf install -y \
 	binutils time bzip2 gcc gcc-c++ libstdc++-static gawk gettext flex ncurses-devel \
-	zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker perl-Parse-Yapp perl-JSON \
-	glibc glibc-devel glibc-static sed intltool sharutils lzop patchutils \
-	python3 python3-distutils-extra re2c bash mc nano \
-	rsync zsh git wget openssl-devel openssl which libtool cpio 'dnf-command(download)' && \
+	zlib-devel zlib-static make patch unzip sharutils intltool \
+	perl-XML-Parser perl-ExtUtils-MakeMaker perl-Parse-Yapp perl-JSON perl-Thread-Queue \
+	glibc glibc-devel glibc-static sed cpio diffstat elfutils \
+	python2 python3 python3-distutils-extra nano \
+	rsync zsh git wget openssl-devel openssl which 'dnf-command(download)' && \
 	dnf clean all
 
 RUN useradd -m user && \
