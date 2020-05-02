@@ -12,7 +12,7 @@ RUN apt-fast update && \
     apt-fast install -y sudo time git-core subversion build-essential g++ bash make \
     			libssl-dev patch libncurses5 libncurses5-dev zlib1g-dev gawk flex \
     			gettext wget unzip xz-utils python python-distutils-extra python3 python3-distutils-extra \
-    			rsync nano zsh
+    			rsync nano zsh re2c
 
 RUN /tmp/remove_apt-fast.sh
 
