@@ -7,7 +7,8 @@ RUN dnf upgrade -y && dnf install -y \
 	zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker perl-Parse-Yapp perl-JSON \
 	glibc glibc-devel glibc-static sed intltool sharutils lzop patchutils \
 	python3 python3-distutils-extra re2c bash mc nano \
-	rsync zsh git wget openssl-devel openssl which libtool cpio 'dnf-command(download)'
+	rsync zsh git wget openssl-devel openssl which libtool cpio 'dnf-command(download)' && \
+	dnf clean all
 
 RUN useradd -m user && \
     echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user
