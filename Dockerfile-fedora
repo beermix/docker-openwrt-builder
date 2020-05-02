@@ -1,0 +1,8 @@
+FROM fedora:32
+
+RUN dnf install -y binutils bzip2 gcc gcc-c++ gawk gettext flex ncurses-devel zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker \
+ glibc glibc-devel glibc-static quilt sed sdcc intltool sharutils bison wget openssl-devel openssl which libtool && dnf clean all
+
+RUN useradd openwrt
+
+USER openwrt
