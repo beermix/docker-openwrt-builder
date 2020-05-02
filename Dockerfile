@@ -11,11 +11,11 @@ RUN apt-fast update && apt-fast install -y time curl wget git ca-certificates
 RUN apt-fast update && \
     apt-get upgrade -y && \
     apt-get dist-upgrade && \
-    apt --purge autoremove -y && \
     apt-fast install -y sudo build-essential g++ bash make \
-    			libssl-dev patch libncurses5 libncurses5-dev zlib1g-dev gawk flex \
+    			libssl-dev patch libncurses6 libncurses-dev zlib1g-dev gawk flex \
     			gettext unzip xz-utils python python-distutils-extra python3 python3-distutils-extra \
-    			rsync nano zsh re2c
+    			rsync nano zsh re2c && \
+    apt --purge autoremove -y
 
 RUN /tmp/remove_apt-fast.sh
 
@@ -23,7 +23,10 @@ RUN /tmp/remove_apt-fast.sh
 RUN rm /tmp/* && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Add user as lede cannot be built as root
-RUN useradd -m user
+RUN useradd -m user && \
+    echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user && \
+    ln -sf bash /bin/sh && \
+    ln -sf bash /usr/bin/sh
 
 # Add build.sh for building with ease
 ADD build.sh /usr/local/bin/
