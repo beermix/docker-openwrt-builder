@@ -1,13 +1,13 @@
-FROM debian:bullseye-backports
+FROM debian:bullseye
 
 RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade && apt --purge autoremove -y &&\
-    apt-get install -y sudo time git-core subversion build-essential g++ bash make libssl-dev patch libncurses5 libncurses5-dev zlib1g-dev gawk flex gettext wget unzip xz-utils python2 python3 python3-distutils-extra rsync nano zsh && \
+    apt-get install -y sudo time git-core subversion build-essential g++ bash make libssl-dev patch libncurses5 libncurses5-dev libjson-perl libparse-yapp-perl re2c  libncurses-dev zlib1g-dev gawk flex gettext wget unzip xz-utils python2 python3 python3-distutils-extra rsync nano zsh && \
     apt-get clean && \
     useradd -m user && \
     echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user
 
 USER user
-WORKDIR /home/user
+WORKDIR /home/user/ledex
 
 # set dummy git config
 RUN git config --global user.name "user" && git config --global user.email "user@example.com"

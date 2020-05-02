@@ -29,5 +29,5 @@ RUN useradd -m user && \
 ADD build.sh /usr/local/bin/
 
 USER user
-WORKDIR /home/user
+WORKDIR /home/user/ledex
 CMD ["/usr/local/bin/build.sh"]
