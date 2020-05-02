@@ -1,17 +1,17 @@
-FROM debian:buster
+FROM debian:buster-backports
 
 # Install apt-fast to speed up downloading packages
 ADD apt-fast/* /tmp/
 RUN /tmp/install_apt-fast.sh
 
 # Install basic utilities
-RUN apt-fast update && apt-fast install -y time curl wget git subversion ca-certificates
+RUN apt-fast update && apt-fast install -y time curl wget git ca-certificates
 
 # Install build tools
 RUN apt-fast update && \
-    apt-fast install -y sudo time git-core subversion build-essential g++ bash make \
+    apt-fast install -y sudo build-essential g++ bash make \
     			libssl-dev patch libncurses5 libncurses5-dev zlib1g-dev gawk flex \
-    			gettext wget unzip xz-utils python python-distutils-extra python3 python3-distutils-extra \
+    			gettext unzip xz-utils python python-distutils-extra python3 python3-distutils-extra \
     			rsync nano zsh re2c
 
 RUN /tmp/remove_apt-fast.sh
