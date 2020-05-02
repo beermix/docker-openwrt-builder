@@ -1,9 +1,9 @@
-FROM fedora:32
+FROM fedora:31
  			
 RUN dnf install -y binutils time bzip2 gcc gcc-c++ gawk gettext flex ncurses-devel \
 	zlib-devel zlib-static make patch unzip perl-ExtUtils-MakeMaker \
 	glibc glibc-devel glibc-static quilt sed sdcc intltool sharutils \
-	python3-distutils-extra xz-static re2c bash mc nano \
+	python3 python3-distutils-extra xz-static re2c bash mc nano \
 	rsync zsh git wget openssl-devel openssl which libtool && dnf clean all
 
 RUN useradd user
