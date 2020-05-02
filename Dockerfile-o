@@ -1,12 +1,17 @@
 FROM debian:buster
 
-RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade && apt --purge autoremove -y &&\
-    apt-get install -y sudo time git-core subversion build-essential g++ \
-    bash make libssl-dev patch libncurses5 libncurses5-dev libncurses-dev zlib1g-dev libjson-perl libparse-yapp-perl re2c \
-    gawk flex gettext wget unzip xz-utils python python-distutils-extra python3 python3-distutils-extra rsync nano zsh && \
+RUN sed -i 's/http.*debian\.org\(.*\)$/http\:\/\/mirror.yandex.ru\1 contrib non-free/' /etc/apt/sources.list &&\ 
+    apt-get update && apt-get upgrade -y && apt-get dist-upgrade && \
+    apt-get install -y sudo time git-core subversion binutils bzip2 build-essential g++ libelf-dev \
+    bash make libssl-dev patch libncurses5-dev zlib1g-dev libjson-perl libparse-yapp-perl \
+    libtool gperf gawk flex gettext wget unzip xz-utils re2c \
+    python python-distutils-extra python3 python3-distutils-extra rsync nano zsh && \
+    apt --purge autoremove -y &&\
     apt-get clean && \
     useradd -m user && \
-    echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user
+    echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user && \
+    ln -sf bash /bin/sh && \
+    ln -sf bash /usr/bin/sh
 
 USER user
 WORKDIR /home/user/ledex
