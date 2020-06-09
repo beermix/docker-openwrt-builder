@@ -13,7 +13,7 @@ RUN apt-fast update && \
     apt-fast --purge autoremove -y && \
     apt-fast install -y build-essential g++ bash make patch gawk flex zsh re2c \
 			libncurses6 libncurses-dev libncurses5-dev zlib1g-dev rsync \
-			gettext unzip xz-utils python python-distutils-extra python3 python3-distutils-extra3
+			gettext unzip xz-utils python python-distutils-extra python3 python3-distutils-extra
 
 RUN /tmp/remove_apt-fast.sh
 
