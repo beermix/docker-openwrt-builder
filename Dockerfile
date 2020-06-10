@@ -8,15 +8,19 @@ RUN /tmp/install_apt-fast.sh
 RUN apt-fast update && apt-fast install -y time curl wget git ca-certificates
 
 # Install build tools
-RUN apt-get update -qq &&\
-    apt-get install -y \
+RUN apt-fast update -qq &&\
+    apt-fast install -y \
         build-essential \
         curl \
         file \
         gawk \
         gettext \
         git \
+        libncurses6 \
+        libncursesw6 \
+        libncurses-dev \
         libncurses5-dev \
+        libncursesw5-dev \
         libssl-dev \
         python2.7 \
         python3 \
@@ -29,8 +33,8 @@ RUN apt-get update -qq &&\
         nano \
         zlib1g-dev \
         mc tig zsh \
-        && apt-get -y autoremove \
-        && apt-get clean \
+        && apt-fast -y autoremove \
+        && apt-fast clean \
         && rm -rf /var/lib/apt/lists/*
 
 RUN /tmp/remove_apt-fast.sh
@@ -39,9 +43,9 @@ RUN /tmp/remove_apt-fast.sh
 RUN rm /tmp/* && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Add user as lede cannot be built as root
-RUN useradd -m user && \
-    ln -sf bash /bin/sh && \
-    ln -sf bash /usr/bin/sh
+RUN useradd -m user
+#    ln -sf bash /bin/sh && \
+#    ln -sf bash /usr/bin/sh
 
 # Add build.sh for building with ease
 ADD build.sh /usr/local/bin/
