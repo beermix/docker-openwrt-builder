@@ -7,7 +7,7 @@ RUN dnf upgrade -y && dnf install -y \
 	zlib-devel zlib-static make patch unzip sharutils intltool \
 	perl-XML-Parser perl-ExtUtils-MakeMaker perl-Parse-Yapp perl-JSON perl-Thread-Queue \
 	glibc glibc-devel glibc-static sed cpio diffstat elfutils mc \
-	python2 python3 python3-distutils-extra nano \
+	python2 python3 python3-distutils-extra nano zstd tig \
 	rsync zsh git wget openssl-devel openssl which 'dnf-command(download)' && \
 	dnf clean all
 
