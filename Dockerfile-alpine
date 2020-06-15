@@ -1,0 +1,13 @@
+FROM alpine:edge
+
+RUN apk upgrade --update \
+    && apk add --no-cache --virtual .build-deps build-base gcc abuild binutils autoconf automake libtool flex bison \
+    curl git gawk sed alpine-sdk linux-headers pcre-dev libbsd-dev bzip2-dev zlib-dev \
+    sqlite-dev readline-dev pcre-dev ncurses-dev bash zsh rust openssl-dev libsodium-dev patch
+
+RUN adduser -D user && \
+    ln -sf bash /bin/sh && \
+    ln -sf bash /usr/bin/sh
+
+USER user
+WORKDIR /home/user
