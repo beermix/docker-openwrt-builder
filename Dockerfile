@@ -17,11 +17,10 @@ RUN apt-fast update -qq &&\
         gawk \
         gettext \
         git \
+        flex \
+        intltool \
         libncurses6 \
-        libncursesw6 \
         libncurses-dev \
-        libncurses5-dev \
-        libncursesw5-dev \
         libssl-dev \
         python2.7 \
         python3 \
@@ -29,9 +28,8 @@ RUN apt-fast update -qq &&\
         python3-setuptools \
         python3-distutils \
         rsync \
-        subversion \
         sudo \
-        swig \
+        re2c \
         unzip \
         wget \
         nano \
