@@ -1,4 +1,5 @@
-FROM debian:buster
+#FROM debian:buster
+FROM debian:stable-20200607-slim
 
 # Install apt-fast to speed up downloading packages
 ADD apt-fast/* /tmp/
@@ -44,8 +45,8 @@ RUN rm /tmp/* && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Add user as lede cannot be built as root
 RUN useradd -m user
-#    ln -sf bash /bin/sh && \
-#    ln -sf bash /usr/bin/sh
+    ln -sf bash /bin/sh && \
+    ln -sf bash /usr/bin/sh
 
 # Add build.sh for building with ease
 ADD build.sh /usr/local/bin/
