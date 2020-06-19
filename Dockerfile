@@ -17,7 +17,7 @@ RUN apt-fast update -qq &&\
         gawk \
         gettext \
         git \
-	pkgconf \
+        pkgconf \
         flex \
         intltool \
         zstd \
