@@ -1,5 +1,5 @@
 #FROM debian:buster
-FROM debian:stable-20200607-slim
+FROM debian:stable
 
 # Install apt-fast to speed up downloading packages
 ADD apt-fast/* /tmp/
@@ -25,6 +25,9 @@ RUN apt-fast update -qq &&\
         libssl-dev \
         python2.7 \
         python3 \
+        python3-distutils-extra \
+        python3-setuptools \
+        python3-distutils \
         rsync \
         subversion \
         sudo \
