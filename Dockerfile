@@ -19,6 +19,7 @@ RUN apt-fast update -qq &&\
         git \
         flex \
         intltool \
+        zstd \
         libncurses6 \
         libncurses-dev \
         libssl-dev \
