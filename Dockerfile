@@ -44,7 +44,7 @@ RUN /tmp/remove_apt-fast.sh
 RUN rm /tmp/* && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Add user as lede cannot be built as root
-RUN useradd -m user
+RUN useradd -m user && \
     ln -sf bash /bin/sh && \
     ln -sf bash /usr/bin/sh
 
