@@ -36,6 +36,7 @@ RUN apt-fast update -qq &&\
         wget \
         nano \
         zlib1g-dev \
+        libsodium-dev \
         mc tig zsh \
         && apt-fast -y autoremove \
         && apt-fast clean \
