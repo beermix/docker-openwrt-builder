@@ -23,6 +23,7 @@ RUN apt-fast update -qq &&\
         zstd \
         libncurses6 \
         libncurses-dev \
+        libncurses5-dev \
         libssl-dev \
         python2.7 \
         python3 \
@@ -48,9 +49,10 @@ RUN /tmp/remove_apt-fast.sh
 RUN rm /tmp/* && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Add user as lede cannot be built as root
-RUN useradd -m user && \
-    ln -sf bash /bin/sh && \
-    ln -sf bash /usr/bin/sh
+RUN useradd -m user
+#RUN useradd -m user && \
+#    ln -sf bash /bin/sh && \
+#    ln -sf bash /usr/bin/sh
 
 # Add build.sh for building with ease
 ADD build.sh /usr/local/bin/
