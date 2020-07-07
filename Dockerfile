@@ -1,5 +1,5 @@
 #FROM debian:buster
-FROM debian:stable
+FROM debian:bullseye
 
 # Install apt-fast to speed up downloading packages
 ADD apt-fast/* /tmp/

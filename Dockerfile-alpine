@@ -1,9 +1,9 @@
 FROM alpine:edge
 
-RUN apk upgrade --update \
-    && apk add --no-cache --virtual .build-deps build-base gcc abuild binutils autoconf automake libtool flex bison \
-    curl git gawk sed alpine-sdk linux-headers pcre-dev libbsd-dev bzip2-dev zlib-dev \
-    sqlite-dev readline-dev pcre-dev ncurses-dev bash zsh rust openssl-dev libsodium-dev patch
+RUN apk upgrade --update && apk add asciidoc curl sed build-base abuild alpine-sdk zsh bash bc binutils bzip2 \
+    cdrkit coreutils diffutils findutils flex g++ gawk gcc gettext git grep intltool \
+    libxslt linux-headers make ncurses-dev patch perl python2-dev python3-dev py3-setuptools python3 \
+    rsync tar unzip  util-linux wget zlib-dev
 
 RUN adduser -D user && \
     ln -sf bash /bin/sh && \
