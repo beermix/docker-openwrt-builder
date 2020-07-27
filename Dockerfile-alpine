@@ -1,11 +1,17 @@
-FROM alpine:edge
+FROM i386/alpine:3.12.0
 
-RUN apk upgrade --update && apk add asciidoc curl sed build-base abuild alpine-sdk zsh bash bc binutils bzip2 \
-    cdrkit coreutils diffutils findutils flex g++ gawk gcc gettext git grep intltool \
-    libxslt linux-headers make ncurses-dev patch perl python2-dev python3-dev py3-setuptools python3 \
-    rsync tar unzip  util-linux wget zlib-dev
+RUN apk update && apk upgrade --update && \
+    apk add --virtual build-dependencies build-base gcc g++ wget git && \
+    apk add asciidoc curl sed abuild alpine-sdk zsh bash bc binutils bzip2 flex bison m4 autoconf automake libtool \
+    cdrkit coreutils diffutils findutils gawk gettext grep intltool ca-certificates \
+    libxslt make patch perl python2-dev python3-dev py3-setuptools python3 \
+    rsync tar unzip  util-linux rust cargo sudo \
+    libbsd-dev bzip2-dev zlib-dev sqlite-dev readline-dev pcre-dev ncurses-dev bash \
+    ncurses-static bzip2-static zlib-static sqlite-static readline-static curl-static openssl-libs-static libssh2-static \
+    libsodium-dev openssl-dev
 
 RUN adduser -D user && \
+    echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user && \
     ln -sf bash /bin/sh && \
     ln -sf bash /usr/bin/sh
 
