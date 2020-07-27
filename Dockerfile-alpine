@@ -8,7 +8,7 @@ RUN apk update && apk upgrade --update && \
     rsync tar unzip  util-linux rust cargo sudo \
     libbsd-dev bzip2-dev zlib-dev sqlite-dev readline-dev pcre-dev ncurses-dev bash \
     ncurses-static bzip2-static zlib-static sqlite-static readline-static curl-static openssl-libs-static libssh2-static \
-    libsodium-dev openssl-dev
+    libsodium-dev openssl-dev nano tig mc
 
 RUN adduser -D user && \
     echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user && \
