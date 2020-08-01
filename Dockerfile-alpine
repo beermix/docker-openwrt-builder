@@ -1,4 +1,4 @@
- FROM i386/alpine:3.12
+FROM i386/alpine:3.12
 
 RUN apk update && apk upgrade --update && \
     apk add --virtual build-dependencies build-base gcc g++ wget zsh git && \
@@ -9,7 +9,7 @@ RUN apk update && apk upgrade --update && \
     libbsd-dev bzip2-dev zlib-dev sqlite-dev readline-dev pcre-dev ncurses-dev bash \
     ncurses-static bzip2-static zlib-static sqlite-static readline-static curl-static openssl-libs-static libssh2-static \
     libsodium-dev openssl-dev nano tig mc rust cargo
-    
+
 ##   apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing rust cargo
 
 RUN adduser -D user && \
