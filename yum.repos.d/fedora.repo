@@ -26,7 +26,7 @@ skip_if_unavailable=False
 name=Fedora $releasever - Source
 #baseurl=http://download.example/pub/fedora/linux/releases/$releasever/Everything/source/tree/
 metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-source-$releasever&arch=$basearch
-enabled=1
+enabled=0
 metadata_expire=7d
 repo_gpgcheck=0
 type=rpm
