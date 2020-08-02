@@ -1,12 +1,15 @@
 FROM fedora:30
 
 # ADD yum.repos.d /etc/yum.repos.d/
+# perl-Parse-Yapp perl-XML-Parser perl-JSON
 
 RUN dnf upgrade -y && dnf install -y \
-	binutils time bzip2 gcc gcc-c++ gawk gettext ncurses-devel \
+	@c-development @development-tools @development-libs \
+	binutils time bzip2 gcc gcc-c++ gawk gettext ncurses-devel flex \
 	make patch unzip sharutils intltool util-linux zlib-devel zlib-static \
-	perl-XML-Parser perl-ExtUtils-MakeMaker perl-Parse-Yapp perl-JSON perl-Thread-Queue \
+	perl-ExtUtils-MakeMaker perl-Thread-Queue \
 	glibc glibc-devel sed cpio diffstat mc zstd tig \
+	zlib-static elfutils-libelf-devel gawk unzip file wget \
 	python3 python3-distutils-extra nano systemtap-devel \
 	rsync zsh git wget openssl-devel openssl which 'dnf-command(download)' && \
 	dnf clean all
