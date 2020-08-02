@@ -4,11 +4,12 @@ FROM fedora:30
 # perl-Parse-Yapp perl-XML-Parser perl-JSON
 # @c-development @development-tools @development-libs \
 
-RUN dnf upgrade -y && dnf install -y \
-	@c-development binutils time bzip2 gcc gcc-c++ gawk gettext ncurses-devel flex \
+RUN dnf upgrade -y && \
+	dnf install -y \
+	@c-development @development-tools @development-libs \
+	binutils time bzip2 gcc gcc-c++ gawk gettext ncurses-devel flex \
 	make patch unzip sharutils intltool util-linux zlib-devel zlib-static \
 	perl-ExtUtils-MakeMaker perl-Thread-Queue \
-	perl-Parse-Yapp perl-XML-Parser perl-JSON \
 	glibc glibc-devel sed cpio diffstat mc zstd tig \
 	zlib-static elfutils-libelf-devel gawk unzip file wget \
 	python3 python3-distutils-extra nano systemtap-devel \
