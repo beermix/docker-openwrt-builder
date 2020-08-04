@@ -6,7 +6,6 @@ FROM fedora:30
 
 RUN dnf upgrade -y && \
 	dnf install -y \
-	@c-development @development-tools @development-libs \
 	binutils time bzip2 gcc gcc-c++ gawk gettext ncurses-devel flex \
 	make patch unzip sharutils intltool util-linux zlib-devel zlib-static \
 	perl-ExtUtils-MakeMaker perl-Thread-Queue \

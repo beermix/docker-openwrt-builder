@@ -5,12 +5,13 @@ RUN apk update && apk upgrade --update && \
     binutils bzip2 flex bison m4 autoconf automake libtool \
     coreutils diffutils findutils gawk gettext grep intltool ca-certificates \
     libxslt make patch perl python2-dev python3-dev py3-setuptools python3 bash \
-    rsync tar unzip util-linux sudo \
+    rsync tar unzip util-linux sudo zsh \
     libbsd-dev bzip2-dev zlib-dev sqlite-dev readline-dev pcre-dev ncurses-dev \
-    ncurses-static bzip2-static zlib-static sqlite-static readline-static curl-static openssl-libs-static libssh2-static \
+    bzip2-static sqlite-static \
     libsodium-dev openssl-dev nano tig mc rust cargo
 
-RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/v3.12/main zsh
+# ncurses-static bzip2-static zlib-static readline-static curl-static openssl-libs-static libssh2-static
+# RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/v3.12/main zsh
 
 RUN adduser -D user && \
     echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user && \
