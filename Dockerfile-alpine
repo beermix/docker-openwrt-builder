@@ -1,4 +1,4 @@
-FROM i386/alpine:3.12
+FROM i386/alpine
 
 RUN apk update && apk upgrade --update && \
     apk add build-base gcc g++ wget git curl sed abuild alpine-sdk bash bc \
