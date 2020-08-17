@@ -6,8 +6,7 @@ RUN apk update && apk upgrade --update && \
     coreutils diffutils findutils gawk gettext grep intltool ca-certificates \
     libxslt make patch perl python2-dev python3-dev py3-setuptools python3 bash \
     rsync tar unzip util-linux sudo zsh \
-    libbsd-dev bzip2-dev zlib-dev sqlite-dev readline-dev pcre-dev ncurses-dev \
-    bzip2-static sqlite-static \
+    libbsd-dev bzip2-dev bzip2-static zlib-dev readline-dev pcre-dev ncurses-dev sqlite-dev sqlite-static \
     libsodium-dev openssl-dev nano tig mc rust cargo
 
 # ncurses-static bzip2-static zlib-static readline-static curl-static openssl-libs-static libssh2-static
