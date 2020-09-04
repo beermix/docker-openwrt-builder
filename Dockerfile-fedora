@@ -1,8 +1,8 @@
 FROM fedora:30
 
-#ADD yum.repos.d /etc/yum.repos.d/
+ADD yum.repos.d /etc/yum.repos.d/
 
-RUN dnf upgrade -y && dnf install -y \
+RUN dnf update -y && dnf upgrade -y && dnf install -y \
 	time @c-development @development-tools @development-libs \
 	zlib-static elfutils-libelf-devel gawk unzip file wget mc zstd tig \
 	python2 python3 python3-distutils-extra nano \
