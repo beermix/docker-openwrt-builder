@@ -7,12 +7,14 @@ RUN apk update && apk upgrade --update && \
     libxslt make patch perl python2-dev python3-dev py3-setuptools python3 bash \
     rsync tar unzip util-linux sudo zsh \
     libbsd-dev bzip2-dev bzip2-static zlib-dev readline-dev pcre-dev ncurses-dev sqlite-dev sqlite-static \
-    libsodium-dev openssl-dev nano tig mc rust cargo
+    libsodium-dev openssl-dev nano tig mc rust cargo \
+    paxmark texinfo zip gmp-dev mpfr-dev mpc1-dev libucontext-dev gcc-gnat-bootstrap isl-dev
 
 # ncurses-static bzip2-static zlib-static readline-static curl-static openssl-libs-static libssh2-static
 # RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/v3.12/main zsh
 
 RUN adduser -D user && \
+    addgroup user abuild && \
     echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user && \
     ln -sf bash /bin/sh && \
     ln -sf bash /usr/bin/sh
