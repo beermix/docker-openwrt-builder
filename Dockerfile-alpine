@@ -1,4 +1,4 @@
-FROM i386/alpine
+FROM i386/alpine:3.12
 
 RUN apk update && apk upgrade --update && \
     apk add build-base gcc g++ wget git curl sed abuild alpine-sdk bash bc \
@@ -6,9 +6,9 @@ RUN apk update && apk upgrade --update && \
     coreutils diffutils findutils gawk gettext grep intltool ca-certificates \
     libxslt make patch perl python2-dev python3-dev py3-setuptools python3 bash \
     rsync tar unzip util-linux sudo zsh \
-    libbsd-dev bzip2-dev bzip2-static zlib-dev readline-dev pcre-dev ncurses-dev sqlite-dev sqlite-static \
+    libbsd-dev bzip2-dev zlib-dev readline-dev pcre-dev ncurses-dev sqlite-dev sqlite-static \
     libsodium-dev openssl-dev nano tig mc rust cargo \
-    paxmark texinfo zip gmp-dev mpfr-dev mpc1-dev libucontext-dev gcc-gnat-bootstrap isl-dev
+    paxmark texinfo zip gmp-dev mpfr-dev mpc1-dev ncurses-static bzip2-static zlib-static readline-static curl-static openssl-libs-static
 
 # ncurses-static bzip2-static zlib-static readline-static curl-static openssl-libs-static libssh2-static
 # RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/v3.12/main zsh
