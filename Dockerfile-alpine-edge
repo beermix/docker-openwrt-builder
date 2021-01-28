@@ -1,5 +1,5 @@
-#FROM i386/alpine:edge
-FROM alpine:edge
+FROM i386/alpine:edge
+#FROM alpine:edge
 
 RUN apk update && apk upgrade --update && \
     apk add build-base gcc g++ wget git curl sed abuild alpine-sdk bash bc \
