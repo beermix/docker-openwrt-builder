@@ -1,17 +1,16 @@
-#FROM debian:buster
-FROM debian:bullseye
+FROM ubuntu:21.04
+#FROM i386/debian:stretch
 
 # Install apt-fast to speed up downloading packages
 ADD apt-fast/* /tmp/
 RUN /tmp/install_apt-fast.sh
 
 # Install basic utilities
-RUN apt-fast update && apt-fast install -y time curl wget git ca-certificates
+RUN apt-fast update && apt-fast install -y time curl wget git ca-certificates && apt-fast purge tzdata -y
 
 # Install build tools
-RUN apt-fast update -qq &&\
-    apt-fast install -y \
-        build-essential \
+# RUN apt-get update -y --fix-missing &&\
+RUN apt-fast install -y \
         curl \
         file \
         gawk \
@@ -21,15 +20,10 @@ RUN apt-fast update -qq &&\
         flex \
         intltool \
         zstd \
-        libncurses6 \
         libncurses-dev \
-        libncurses5-dev \
-        libssl-dev \
-        python2.7 \
         python3 \
         python3-distutils-extra \
         python3-setuptools \
-        python3-distutils \
         rsync \
         sudo \
         re2c \
@@ -37,8 +31,10 @@ RUN apt-fast update -qq &&\
         wget \
         nano \
         zlib1g-dev \
-        libsodium-dev \
-        mc tig zsh \
+        apt-file \
+        mc \
+        tig \
+        zsh \
         && apt-fast -y autoremove \
         && apt-fast clean \
         && rm -rf /var/lib/apt/lists/*
@@ -49,10 +45,12 @@ RUN /tmp/remove_apt-fast.sh
 RUN rm /tmp/* && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Add user as lede cannot be built as root
-RUN useradd -m user
-RUN useradd -m user && \
-    ln -sf bash /bin/sh && \
-    ln -sf bash /usr/bin/sh
+#RUN useradd -m user &&
+RUN useradd -g root -d /home/user -s /bin/bash user
+RUN echo 'user ALL=NOPASSWD: ALL' > /etc/sudoers.d/user
+
+#    ln -sf bash /bin/sh && \
+#    ln -sf bash /usr/bin/sh
 
 # Add build.sh for building with ease
 ADD build.sh /usr/local/bin/
