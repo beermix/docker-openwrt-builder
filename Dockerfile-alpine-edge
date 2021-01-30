@@ -1,5 +1,5 @@
-FROM i386/alpine:edge
-#FROM alpine:edge
+#FROM i386/alpine:edge
+FROM alpine:3.13
 
 RUN apk update && apk upgrade --update && \
     apk add build-base gcc g++ wget git curl sed abuild alpine-sdk bash bc \
@@ -10,7 +10,11 @@ RUN apk update && apk upgrade --update && \
     libbsd-dev bzip2-dev bzip2-static zlib-dev readline-dev pcre-dev ncurses-dev sqlite-dev sqlite-static \
     libsodium-dev openssl-dev nano tig mc rust cargo \
     paxmark texinfo zip gmp-dev mpfr-dev mpc1-dev libucontext-dev gcc-gnat-bootstrap isl-dev stress-ng \
-    ncurses-static zlib-static readline-static curl-static openssl-libs-static libssh2-static
+    ncurses-static zlib-static readline-static curl-static openssl-libs-static libssh2-static \
+    asciidoc bash bc binutils bzip2 cdrkit coreutils diffutils \
+    findutils flex g++ gawk gcc gettext git grep intltool libxslt \
+    linux-headers make ncurses-dev patch perl python2-dev python3-dev \
+    rsync tar unzip util-linux wget zlib-dev
 
 # ncurses-static zlib-static readline-static curl-static openssl-libs-static libssh2-static
 # RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community go
