@@ -1,5 +1,5 @@
 #FROM i386/alpine:edge
-FROM alpine:3.13
+FROM alpine:3.12
 
 RUN apk update && apk upgrade --update && \
     apk add build-base gcc g++ wget git curl sed abuild alpine-sdk bash bc \
@@ -14,7 +14,7 @@ RUN apk update && apk upgrade --update && \
     asciidoc bash bc binutils bzip2 cdrkit coreutils diffutils \
     findutils flex g++ gawk gcc gettext git grep intltool libxslt \
     linux-headers make ncurses-dev patch perl python2-dev python3-dev \
-    rsync tar unzip util-linux wget zlib-dev
+    rsync tar unzip util-linux wget zlib-dev patchutils
 
 # ncurses-static zlib-static readline-static curl-static openssl-libs-static libssh2-static
 # RUN apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/community go
